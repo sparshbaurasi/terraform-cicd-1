@@ -2,7 +2,7 @@ name: TerraformCICD
 
 on:
   push:
-    branches: [ "stae-cicd" ]
+    branches: [ "stage-cicd" ]
 
 jobs:
   terraform-setup:
