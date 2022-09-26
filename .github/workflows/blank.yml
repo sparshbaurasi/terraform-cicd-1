@@ -8,6 +8,10 @@ jobs:
   terraform-cicd:
     runs-on: ubuntu-latest
     steps:
+      - name: Terraform Setup
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.3.0
       - uses: actions/checkout@v3
       - name: Configure AWS Creds
         uses: aws-actions/configure-aws-credentials@v1
