@@ -13,7 +13,7 @@ jobs:
         with:
           terraform_version: 1.3.0
   aws-creds:
-    runs-on: ubuntu-latest 
+    # runs-on: ubuntu-latest 
     steps:
       - uses: actions/checkout@v3
       - name: Configure AWS Creds
@@ -23,19 +23,19 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1
   terraform-init:
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
     steps:
       - name: Terraform Version Check
         run: terraform --version
       - name: Terraform Init
         run: terraform init
   terraform-plan:
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
     steps:
       - name: Terraform Plan
         run: terraform plan
   terraform-apply:
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
     steps:
       - name: Terraform Apply
         run: terraform apply -auto-approve
