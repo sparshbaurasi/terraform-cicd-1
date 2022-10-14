@@ -1,6 +1,18 @@
 name: TerraformCICD
 
 on:
+  workflow_dispatch:
+    inputs:
+      STATEBUCKET:
+        description: 'BucketName'
+        required: true
+      STATEKEY:
+        description: 'StateKey'
+        required: true
+      STATEREGION:
+        description: 'Region of bucket'
+        required: true
+        default: 'ap-south-1'
   push:
     branches: [ "main" ]
 
@@ -22,7 +34,7 @@ jobs:
       - name: Terraform Version Check
         run: terraform --version
       - name: Terraform Init
-        run: terraform init
+        run: terraform init -upgrade -backend-config="bucket=${{ github.event.inputs.STATEBUCKET }}" -backend-config="key=${{ github.event.inputs.STATEKEY }}/terraform.tfstate" -backend-config="region=${{ github.event.inputs.STATEREGION }}"
       - name: Terraform Plan
         run: terraform plan
       - name: Terraform Apply
