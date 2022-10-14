@@ -41,7 +41,10 @@ jobs:
         run: terraform --version
       - name: Terraform Init
         run: terraform init -upgrade -backend-config="bucket=${{ github.event.inputs.STATEBUCKET }}" -backend-config="key=${{ github.event.inputs.STATEKEY }}/terraform.tfstate" -backend-config="region=${{ github.event.inputs.STATEREGION }}"
+        working-directory: ./services/${{ github.event.inputs.STATEKEY }}
       - name: Terraform Plan
         run: terraform plan
+        working-directory: ./services/${{ github.event.inputs.STATEKEY }}
       - name: Terraform Apply
         run: terraform apply -auto-approve
+        working-directory: ./services/${{ github.event.inputs.STATEKEY }}
