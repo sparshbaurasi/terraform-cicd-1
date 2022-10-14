@@ -33,6 +33,7 @@ jobs:
           aws-region: ap-south-1
       - name: Change Dir
         run: cd services/${{ github.event.inputs.STATEKEY }}
+      - run: pwd
       - name: Terraform Version Check
         run: terraform --version
       - name: Terraform Init
