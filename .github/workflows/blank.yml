@@ -35,7 +35,7 @@ jobs:
       - name: Change Dir
         run: cd services/${{ github.event.inputs.STATEKEY }}/
       - run: pwd
-      - run: cd services/s3-bucket/
+      - run: cd ./services/s3-bucket/
       - run: pwd
       - name: Terraform Version Check
         run: terraform --version
