@@ -4,14 +4,27 @@ on:
   workflow_dispatch:
     inputs:
       ENVRIONMENT:
+        type: choice
         description: 'EnvironmentName'
         required: true
+        options: 
+        - test
+        - prod
+        - dev
       STATEBUCKET:
+        type: choice
         description: 'BucketName'
         required: true
+        options: 
+        - tf-state-bucket1
       STATEKEY:
+        type: choice
         description: 'StateKey'
         required: true
+        options: 
+        - s3-bucket
+        - s3-bucket2
+        - s3-bucket3
       STATEREGION:
         description: 'Region of bucket'
         required: true
