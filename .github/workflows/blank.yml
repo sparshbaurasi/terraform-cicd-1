@@ -57,7 +57,7 @@ jobs:
           aws-region: ap-south-1
       - name: Export Var
         run: |
-          export STATEBUCKET = ${{ github.event.inputs.STATEBUCKET }}
+          export STATEBUCKET=${{ github.event.inputs.STATEBUCKET }}
       - name: Terraform Version Check
         run: terraform --version
       - name: Terraform Init
