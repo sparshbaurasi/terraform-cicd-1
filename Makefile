@@ -2,7 +2,7 @@
 # ####################################################
 
 STATEBUCKET = $(STATEBUCKETNAME)
-STATEKEY = $(ENVIRONMENTNAME)/$(STATEKEYNAME)/terraform.tfstate
+STATEKEY = $(ENVRIONMENTNAME)/$(STATEKEYNAME)/terraform.tfstate
 STATEREGION = $(STATEREGIONNAME)
 
 ################################ Terraform Environment Variables ##################################
