@@ -24,7 +24,7 @@ test:
 first-run:
 	@echo "initialize remote state file"
 	cd services/$(SERVICE) && \
-	terraform init -upgrade -backend-config="bucket=$(STATEBUCKET)" -backend-config="key=$(STATEKEY)" -backend-config="dynamodb_table=$(STATELOCKTABLE)" -backend-config="region=$(STATEREGION)"
+	terraform init -upgrade -backend-config="bucket=$(STATEBUCKET)" -backend-config="key=$(STATEKEY)" -backend-config="region=$(STATEREGION)"
 
 init:
 	@echo "initialize remote state file"
