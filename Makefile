@@ -1,6 +1,6 @@
 # Makefile to kickoff terraform.
 # ####################################################
-
+SERVICE = $(STATEKEYNAME)
 STATEBUCKET = $(STATEBUCKETNAME)
 STATEKEY = $(ENVRIONMENTNAME)/$(STATEKEYNAME)/terraform.tfstate
 STATEREGION = $(STATEREGIONNAME)
