@@ -1,7 +1,7 @@
 # Makefile to kickoff terraform.
 # ####################################################
 
-STATEBUCKET = $(STATEBUCKET)
+STATEBUCKET = $(STATEBUCKETNAME)
 STATEKEY = ${{ github.event.inputs.STATEKEY }}/terraform.tfstate
 STATEREGION = ap-south-1
 
