@@ -58,9 +58,9 @@ jobs:
       - name: Terraform Version Check
         run: terraform --version
       - name: Terraform Init
-        if: ${{ github.event.inputs.TERRAFORMCOMMAND == 'init' }}
+        if: ${{ github.event.inputs.TERRAFORMCOMMAND == 'test' }}
         run: | 
-          make init
+          make test
       # - name: Terraform Plan
       #   run: terraform plan
       #   working-directory: ./services/${{ github.event.inputs.STATEKEY }}
