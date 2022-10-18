@@ -30,7 +30,8 @@ init:
 	cd services/$(SERVICE) && \
 	terraform init -upgrade -backend-config="bucket=$(STATEBUCKET)" -backend-config="key=$(STATEKEY)" -backend-config="region=$(STATEREGION)" && \
 	terraform workspace select $(WORKSPACE) || terraform workspace new $(WORKSPACE) && \
-	#terraform init --force-copy -backend-config="bucket=$(STATEBUCKET)" -backend-config="key=$(STATEKEY)" -backend-config="region=$(STATEREGION)"
+	
+#terraform init --force-copy -backend-config="bucket=$(STATEBUCKET)" -backend-config="key=$(STATEKEY)" -backend-config="region=$(STATEREGION)"
 
 validate: init
 	@echo "running terraform validate"
