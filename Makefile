@@ -23,9 +23,10 @@ test:
 	@echo $(STATEREGION)
 first-run:
 	@echo "initialize remote state file"
+	pwd
 	cd services/$(SERVICE) && \
 	terraform init -upgrade -backend-config="bucket=$(STATEBUCKET)" -backend-config="key=$(STATEKEY)" -backend-config="region=$(STATEREGION)"
-
+	pwd
 init:
 	@echo "initialize remote state file"
 	cd services/$(SERVICE) && \
