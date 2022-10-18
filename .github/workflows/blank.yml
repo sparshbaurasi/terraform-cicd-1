@@ -40,7 +40,10 @@ on:
         required: true
         default: 'ap-south-1'
 env:
-  STATEBUCKETNAME: Monday
+  STATEBUCKETNAME: ${{ github.event.inputs.STATEBUCKET }}
+  STATEKEYNAME: ${{ github.event.inputs.STATEKEY }}
+  ENVRIONMENTNAME: ${{ github.event.inputs.ENVRIONMENT }}
+  STATEREGIONNAME: ${{ github.event.inputs.STATEREGION }}
 
 jobs:
   terraform-cicd:
@@ -57,18 +60,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1
-      - name: Export Var
-        run: |
-          export STATEBUCKETNAME=${{ github.event.inputs.STATEBUCKET }}
-          echo $STATEBUCKETNAME
-          export STATEKEYNAME=${{ github.event.inputs.STATEKEY }}
-          echo $STATEKEYNAME
-          export ENVRIONMENTNAME=${{ github.event.inputs.ENVRIONMENT }}
-          echo $ENVRIONMENTNAME
-          export STATEREGIONNAME=${{ github.event.inputs.STATEREGION }}
-          echo $STATEREGIONNAME
-          echo ------------
-          make test
       - name: Terraform Version Check
         run: terraform --version
       - name: Terraform Init
