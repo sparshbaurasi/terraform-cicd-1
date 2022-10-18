@@ -9,9 +9,9 @@ STATEREGION = ${{ github.event.inputs.STATEREGION }}
 export TF_VAR_sinequa_platform_deployed_time=$(shell date +%s)
 
 # # Before we start test that we have the mandatory executables available
-	EXECUTABLES = git terraform-14.9
-	K := $(foreach exec,$(EXECUTABLES),\
-		$(if $(shell which $(exec)),some string,$(error "No $(exec) in PATH, consider apt-get install $(exec)")))
+	# EXECUTABLES = git terraform-14.9
+	# K := $(foreach exec,$(EXECUTABLES),\
+	# 	$(if $(shell which $(exec)),some string,$(error "No $(exec) in PATH, consider apt-get install $(exec)")))
 
 
 .PHONY: plan
