@@ -59,7 +59,7 @@ jobs:
       - name: Terraform Init
         if: ${{ github.event.inputs.TERRAFORMCOMMAND == 'init' }}
         run: make init
-      #   working-directory: ./services/${{ github.event.inputs.STATEKEY }}
+        working-directory: ./services/${{ github.event.inputs.STATEKEY }}
       # - name: Terraform Plan
       #   run: terraform plan
       #   working-directory: ./services/${{ github.event.inputs.STATEKEY }}
