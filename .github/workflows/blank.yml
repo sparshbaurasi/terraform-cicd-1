@@ -58,7 +58,7 @@ jobs:
       - name: Export Var
         run: |
           export STATEBUCKETNAME=${{ github.event.inputs.STATEBUCKET }}
-          echo STATEBUCKETNAME
+          echo $STATEBUCKETNAME
       - name: Terraform Version Check
         run: terraform --version
       - name: Terraform Init
