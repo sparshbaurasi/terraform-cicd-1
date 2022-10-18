@@ -39,6 +39,8 @@ on:
         description: 'Region of bucket'
         required: true
         default: 'ap-south-1'
+env:
+  STATEBUCKETNAME: Monday
 
 jobs:
   terraform-cicd:
