@@ -59,12 +59,12 @@ jobs:
         run: |
           export STATEBUCKETNAME=${{ github.event.inputs.STATEBUCKET }}
           echo $STATEBUCKETNAME
+          make test
       - name: Terraform Version Check
         run: terraform --version
-      - name: Terraform Init
-        if: ${{ github.event.inputs.TERRAFORMCOMMAND == 'test' }}
-        run: | 
-          make test
+      # - name: Terraform Init
+      #   if: ${{ github.event.inputs.TERRAFORMCOMMAND == 'test' }}
+      #   run: | 
       # - name: Terraform Plan
       #   run: terraform plan
       #   working-directory: ./services/${{ github.event.inputs.STATEKEY }}
