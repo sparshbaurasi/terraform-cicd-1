@@ -71,6 +71,10 @@ jobs:
         if: ${{ github.event.inputs.TERRAFORMCOMMAND == 'plan' }}
         run: | 
           make plan
+      - name: Terraform Plan
+        if: ${{ github.event.inputs.TERRAFORMCOMMAND == 'first-run' }}
+        run: | 
+          make first-run
       # - name: Terraform Plan
       #   run: terraform plan
       #   working-directory: ./services/${{ github.event.inputs.STATEKEY }}
