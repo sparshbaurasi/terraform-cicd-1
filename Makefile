@@ -10,9 +10,9 @@ WORKSPACE = $(ENVRIONMENTNAME)
 export TF_VAR_sinequa_platform_deployed_time=$(shell date +%s)
 
 # # Before we start test that we have the mandatory executables available
-	# EXECUTABLES = git terraform
-	# K := $(foreach exec,$(EXECUTABLES),\
-	# 	$(if $(shell which $(exec)),some string,$(error "No $(exec) in PATH, consider apt-get install $(exec)")))
+# EXECUTABLES = git terraform
+# K := $(foreach exec,$(EXECUTABLES),\
+# 	$(if $(shell which $(exec)),some string,$(error "No $(exec) in PATH, consider apt-get install $(exec)")))
 
 
 .PHONY: plan
@@ -30,8 +30,8 @@ init:
 	cd services/$(SERVICE) && \
 	terraform init -upgrade -backend-config="bucket=$(STATEBUCKET)" -backend-config="key=$(STATEKEY)" -backend-config="region=$(STATEREGION)" && \
 	terraform workspace select $(WORKSPACE) || terraform workspace new $(WORKSPACE) && \
-	
-#terraform init --force-copy -backend-config="bucket=$(STATEBUCKET)" -backend-config="key=$(STATEKEY)" -backend-config="region=$(STATEREGION)"
+
+########terraform init --force-copy -backend-config="bucket=$(STATEBUCKET)" -backend-config="key=$(STATEKEY)" -backend-config="region=$(STATEREGION)"
 
 validate: init
 	@echo "running terraform validate"
