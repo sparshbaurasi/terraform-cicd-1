@@ -4,6 +4,7 @@
 STATEBUCKET = $(STATEBUCKETNAME)
 STATEKEY = $(ENVRIONMENTNAME)/$(STATEKEYNAME)/terraform.tfstate
 STATEREGION = $(STATEREGIONNAME)
+WORKSPACE = $(ENVRIONMENTNAME)
 
 ################################ Terraform Environment Variables ##################################
 export TF_VAR_sinequa_platform_deployed_time=$(shell date +%s)
