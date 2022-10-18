@@ -1,10 +1,9 @@
 # Makefile to kickoff terraform.
 # ####################################################
 
-STATEBUCKET = $(STATEBUCKETNAME)
-STATELOCKTABLE = $(STATELOCKTABLENAME)
-STATEKEY = $(SERVICE)/terraform.tfstate
-STATEREGION = eu-central-1
+STATEBUCKET = ${{ github.event.inputs.STATEBUCKET }}
+STATEKEY = ${{ github.event.inputs.STATEKEY }}/terraform.tfstate
+STATEREGION = ${{ github.event.inputs.STATEREGION }}
 
 ################################ Terraform Environment Variables ##################################
 export TF_VAR_sinequa_platform_deployed_time=$(shell date +%s)
@@ -26,7 +25,7 @@ init:
 	@echo "initialize remote state file"
 	cd services/$(SERVICE) && \
 	terraform-14.9 workspace select $(WORKSPACE) || terraform-14.9 workspace new $(WORKSPACE) && \
-	terraform-14.9 init --force-copy -backend-config="bucket=$(STATEBUCKET)" -backend-config="key=$(STATEKEY)" -backend-config="dynamodb_table=$(STATELOCKTABLE)" -backend-config="region=$(STATEREGION)"
+	terraform-14.9 init --force-copy -backend-config="bucket=$(STATEBUCKET)" -backend-config="key=$(STATEKEY)" -backend-config="region=$(STATEREGION)"
 
 validate: init
 	@echo "running terraform validate"
