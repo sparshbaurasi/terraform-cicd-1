@@ -27,7 +27,7 @@ on:
         - s3-bucket3
       TERRAFORMCOMMAND:
         type: choice
-        description: 'StateKey'
+        description: 'Terraform Command'
         required: true
         options: 
         - plan
