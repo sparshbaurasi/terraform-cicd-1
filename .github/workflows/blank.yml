@@ -29,7 +29,8 @@ on:
         type: choice
         description: 'Terraform Command'
         required: true
-        options: 
+        options:
+        - first-run
         - init
         - plan
         - apply
