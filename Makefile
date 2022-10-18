@@ -2,8 +2,8 @@
 # ####################################################
 
 STATEBUCKET = $(STATEBUCKETNAME)
-STATEKEY = ${{ github.event.inputs.STATEKEY }}/terraform.tfstate
-STATEREGION = ap-south-1
+STATEKEY = $(ENVIRONMENTNAME)/$(STATEKEYNAME)/terraform.tfstate
+STATEREGION = $(STATEREGIONNAME)
 
 ################################ Terraform Environment Variables ##################################
 export TF_VAR_sinequa_platform_deployed_time=$(shell date +%s)
