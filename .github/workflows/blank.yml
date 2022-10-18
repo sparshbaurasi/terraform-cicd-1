@@ -67,30 +67,25 @@ jobs:
         if: ${{ github.event.inputs.TERRAFORMCOMMAND == 'init' }}
         run: | 
           make init
-        working-directory: ./services/${{ github.event.inputs.STATEKEY }}
       - name: Terraform Plan
         if: ${{ github.event.inputs.TERRAFORMCOMMAND == 'plan' }}
         run: | 
           make plan
-        working-directory: ./services/${{ github.event.inputs.STATEKEY }}
       - name: Terraform first-run
         if: ${{ github.event.inputs.TERRAFORMCOMMAND == 'first-run' }}
         run: | 
           make first-run
-        working-directory: ./services/${{ github.event.inputs.STATEKEY }}
       - name: Terraform apply
         if: ${{ github.event.inputs.TERRAFORMCOMMAND == 'apply' }}
         run: | 
           make apply
-        working-directory: ./services/${{ github.event.inputs.STATEKEY }}
       - name: Terraform destroy
         if: ${{ github.event.inputs.TERRAFORMCOMMAND == 'destroy' }}
         run: | 
           make destroy
-        working-directory: ./services/${{ github.event.inputs.STATEKEY }}
       # - name: Terraform Plan
       #   run: terraform plan
-      #   working-directory: ./services/${{ github.event.inputs.STATEKEY }}
+      #   w
       # - name: Terraform Apply
       #   run: terraform apply -auto-approve
-      #   working-directory: ./services/${{ github.event.inputs.STATEKEY }}
+      #   w
