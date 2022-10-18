@@ -18,6 +18,10 @@ export TF_VAR_sinequa_platform_deployed_time=$(shell date +%s)
 
 .PHONY: plan
 
+test:
+	@echo STATEBUCKET
+	@echo STATEKEY
+	@echo STATEREGION
 first-run:
 	@echo "initialize remote state file"
 	cd services/$(SERVICE) && \

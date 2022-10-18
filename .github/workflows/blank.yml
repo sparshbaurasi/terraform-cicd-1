@@ -34,6 +34,7 @@ on:
         - plan
         - apply
         - destroy-init
+        - test
       STATEREGION:
         description: 'Region of bucket'
         required: true
