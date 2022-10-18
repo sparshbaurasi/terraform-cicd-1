@@ -28,8 +28,8 @@ first-run:
 init:
 	@echo "initialize remote state file"
 	cd services/$(SERVICE) && \
-	terraform init && \
 	terraform workspace select $(WORKSPACE) || terraform workspace new $(WORKSPACE) && \
+	terraform init && \
 	terraform init --force-copy -backend-config="bucket=$(STATEBUCKET)" -backend-config="key=$(STATEKEY)" -backend-config="region=$(STATEREGION)"
 
 validate: init
