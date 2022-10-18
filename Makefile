@@ -3,7 +3,7 @@
 
 STATEBUCKET = ${{ github.event.inputs.STATEBUCKET }}
 STATEKEY = ${{ github.event.inputs.STATEKEY }}/terraform.tfstate
-STATEREGION = "ap-south-1"
+STATEREGION = ap-south-1
 
 ################################ Terraform Environment Variables ##################################
 export TF_VAR_sinequa_platform_deployed_time=$(shell date +%s)
@@ -17,9 +17,9 @@ export TF_VAR_sinequa_platform_deployed_time=$(shell date +%s)
 .PHONY: plan
 
 test:
-	@echo STATEBUCKET
-	@echo STATEKEY
-	@echo STATEREGION
+	@echo $(STATEBUCKET)
+	@echo $(STATEKEY)
+	@echo $(STATEREGION)
 first-run:
 	@echo "initialize remote state file"
 	cd services/$(SERVICE) && \
