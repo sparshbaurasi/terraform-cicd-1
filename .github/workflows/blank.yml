@@ -1,4 +1,4 @@
-name: TerraformCICD
+name: Terraform__CICD
 
 on:
   workflow_dispatch:
