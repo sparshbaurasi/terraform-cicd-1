@@ -83,9 +83,3 @@ jobs:
         if: ${{ github.event.inputs.TERRAFORMCOMMAND == 'destroy' }}
         run: | 
           make destroy
-      # - name: Terraform Plan
-      #   run: terraform plan
-      #   w
-      # - name: Terraform Apply
-      #   run: terraform apply -auto-approve
-      #   w
